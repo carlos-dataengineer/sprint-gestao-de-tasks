@@ -8,6 +8,10 @@ license: MIT
 
 Esta Skill instala, cria e evolui a Sprint. **A instalação da Skill inclui a criação do artefato `Sprint.html`.** Não considere a instalação concluída antes de executar o bootstrap e confirmar que o arquivo foi criado.
 
+## Como chamar a Skill
+
+O nome técnico desta Skill é `sprint-task-management`. No Claude Code, use `/sprint-task-management`; no Codex, selecione a Skill no menu `/skills` ou invoque `$sprint-task-management`, conforme o host. Se a plataforma não oferecer invocação manual, descreva o pedido normalmente e confirme que a Skill foi carregada.
+
 ## Instalação: criar o artefato automaticamente
 
 Durante o procedimento de instalação desta Skill, execute o instalador:
