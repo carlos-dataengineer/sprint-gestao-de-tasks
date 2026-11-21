@@ -26,6 +26,10 @@ flowchart TD
     I --> E
 ```
 
+## Como chamar a Skill
+
+Depois de instalar a pasta `sprint-skill` no diretório de Skills do agente e abrir uma nova sessão, chame `/sprint-task-management` no Claude Code. No Codex, selecione `sprint-task-management` pelo menu `/skills` ou invoque `$sprint-task-management`, conforme o host.
+
 ## Instalação
 
 A pasta `sprint-skill` contém a Skill completa. Em um ambiente com suporte a Agent Skills:
