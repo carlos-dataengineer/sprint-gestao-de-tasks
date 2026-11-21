@@ -1,7 +1,7 @@
 # Sprint — Gestão de Tasks
 
 [![CI](https://github.com/carlos-dataengineer/sprint-gestao-de-tasks/actions/workflows/quality.yml/badge.svg)](https://github.com/carlos-dataengineer/sprint-gestao-de-tasks/actions/workflows/quality.yml)
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **A Sprint é uma ferramenta que eu criei para organizar tarefas, acompanhar entregas e entender como um projeto está avançando.** Ela reúne um quadro Kanban, um cronograma por sprint e indicadores em uma única tela.
 
@@ -116,7 +116,7 @@ A aplicação é um HTML independente. Os dados de uso ficam no `localStorage` d
 
 ## Licença
 
-Este projeto usa a [Apache License 2.0](LICENSE). Você pode usar, estudar, modificar e distribuir o código respeitando seus termos.
+Este projeto usa a [MIT License](LICENSE). Você pode usar, estudar, modificar e distribuir o código respeitando seus termos.
 
 ## Sobre o projeto
 
