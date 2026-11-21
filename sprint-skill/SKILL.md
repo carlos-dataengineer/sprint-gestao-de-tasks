@@ -1,7 +1,7 @@
 ---
 name: sprint-task-management
 description: Instala, cria e evolui a Sprint — Gestão de Tasks. Use para gerar automaticamente o artefato HTML durante a instalação da Skill, abrir a ferramenta ou implementar pedidos de melhoria em linguagem natural.
-license: Apache-2.0
+license: MIT
 ---
 
 # Sprint — Gestão de Tasks
