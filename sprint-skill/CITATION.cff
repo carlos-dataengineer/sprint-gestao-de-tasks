@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use Sprint, please cite this project."
+title: "Sprint — Gestão de Tasks"
+authors:
+  - family-names: Robertt
+    given-names: Krlos
+version: 1.2.0
+date-released: 2026-11-21
+license: Apache-2.0
+repository-code: https://github.com/carlos-dataengineer/sprint-gestao-de-tasks
