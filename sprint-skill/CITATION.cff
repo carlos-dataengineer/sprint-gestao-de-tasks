@@ -6,5 +6,5 @@ authors:
     given-names: Krlos
 version: 1.2.0
 date-released: 2026-11-21
-license: Apache-2.0
+license: MIT
 repository-code: https://github.com/carlos-dataengineer/sprint-gestao-de-tasks
