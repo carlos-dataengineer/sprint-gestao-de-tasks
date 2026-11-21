@@ -21,4 +21,4 @@
 - Substituição da integração proprietária de dados por armazenamento local no navegador.
 - Inclusão de dados de demonstração fictícios.
 - Inclusão da Agent Skill e do gerador do artefato HTML.
-- Inclusão da licença Apache-2.0.
+- Uso da licença MIT, conforme o arquivo LICENSE do repositório.
