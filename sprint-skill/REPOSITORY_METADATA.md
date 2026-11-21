@@ -5,7 +5,7 @@
 - **Visibilidade:** público
 - **Descrição:** Ferramenta de gestão de tarefas criada e evoluída por uma Agent Skill. A instalação da Skill gera o artefato HTML da Sprint; a própria Skill orienta melhorias posteriores.
 - **URL:** https://github.com/carlos-dataengineer/sprint-gestao-de-tasks
-- **Licença:** Apache License 2.0
+- **Licença:** MIT
 - **Branch principal:** `main`
 
 ## Tópicos sugeridos
