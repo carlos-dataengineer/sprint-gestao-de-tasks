@@ -62,7 +62,7 @@ fi
 SKILL_SRC="$ROOT/skills/sprint"
 
 # 2. Skill
-has_name() { [ -f "$1/SKILL.md" ] && grep -Eq "^name:[[:space:]]*$2[[:space:]]*$" "$1/SKILL.md"; }
+has_name() { [ -f "$1/SKILL.md" ] && grep -Eq "^name:[[:space:]]*${2}[[:space:]]*$" "$1/SKILL.md"; }
 
 install_skill() {
   local dir="$1" label="$2" old target

@@ -14,7 +14,7 @@ ALL="${SPRINT_UNINSTALL_ALL:-0}"
 for dir in "$HOME/.claude/skills" "${CODEX_HOME:-$HOME/.codex}/skills" "$HOME/.agents/skills"; do
   for name in sprint sprint-task-management; do
     t="$dir/$name"
-    if [ -f "$t/SKILL.md" ] && grep -Eq "^name:[[:space:]]*$name[[:space:]]*$" "$t/SKILL.md"; then
+    if [ -f "$t/SKILL.md" ] && grep -Eq "^name:[[:space:]]*${name}[[:space:]]*$" "$t/SKILL.md"; then
       rm -rf "$t"
       echo "  removido: $t"
     fi
