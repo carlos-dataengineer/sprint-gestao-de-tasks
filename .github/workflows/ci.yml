@@ -14,7 +14,7 @@ jobs:
     name: Validar repositório
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: validar
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -50,7 +50,7 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Instalar a partir do clone
         run: bash install.sh --no-open
       - name: Conferir arquivos
@@ -73,7 +73,7 @@ jobs:
     needs: validar
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Instalar a partir do clone
         shell: powershell
         run: .\install.ps1 -NoOpen
