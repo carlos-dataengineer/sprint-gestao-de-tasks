@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Se usar a Sprint em um trabalho, cite este projeto."
+title: "Sprint — Gestão de Tasks"
+abstract: "Painel de cronograma de sprints, quadro Kanban e saúde do projeto, instalável como skill no Claude e no Codex."
+type: software
+authors:
+  - family-names: Robertt
+    given-names: Krlos
+version: 2.0.0
+date-released: 2026-11-23
+license: MIT
+repository-code: https://github.com/carlos-dataengineer/sprint-gestao-de-tasks
+keywords:
+  - kanban
+  - gantt
+  - sprint
+  - gestão de projetos
+  - claude
+  - codex

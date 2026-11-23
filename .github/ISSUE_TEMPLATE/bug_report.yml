@@ -1,0 +1,47 @@
+name: Relatar um erro
+description: Algo não funciona como deveria
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Obrigado por avisar. Quanto mais detalhes, mais rápido dá para corrigir.
+  - type: textarea
+    id: oque
+    attributes:
+      label: O que aconteceu
+      description: Descreva o erro e o que você esperava ver.
+    validations:
+      required: true
+  - type: textarea
+    id: passos
+    attributes:
+      label: Como reproduzir
+      placeholder: |
+        1. Abra a Sprint
+        2. Clique em…
+        3. …
+    validations:
+      required: true
+  - type: dropdown
+    id: onde
+    attributes:
+      label: Onde você usa
+      multiple: true
+      options:
+        - Artefato no Claude (claude.ai ou app)
+        - Claude Code
+        - Codex
+        - Arquivo aberto no navegador
+        - Instalador (install.ps1 / install.sh)
+    validations:
+      required: true
+  - type: input
+    id: ambiente
+    attributes:
+      label: Sistema e navegador
+      placeholder: Windows 11, Chrome 131
+  - type: textarea
+    id: extra
+    attributes:
+      label: Capturas de tela ou mensagens de erro
+      description: Se puder, anexe um print ou o backup JSON (botão Dados → Exportar backup), sem dados sensíveis.

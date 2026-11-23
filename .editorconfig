@@ -1,0 +1,19 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+
+[*.py]
+indent_size = 4
+
+# Windows PowerShell 5.1 + "irm | iex": manter ASCII puro, sem BOM, com CRLF
+[*.ps1]
+end_of_line = crlf
+
+[*.md]
+trim_trailing_whitespace = false

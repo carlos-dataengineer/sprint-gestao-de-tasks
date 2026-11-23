@@ -1,0 +1,35 @@
+name: Instalação remota (um comando)
+
+# Roda os comandos publicados no README, baixando direto do GitHub,
+# depois de cada push na main e uma vez por semana.
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unix:
+    name: curl | bash
+    runs-on: ubuntu-latest
+    steps:
+      - name: Instalar como no README
+        run: |
+          curl -fsSL "https://raw.githubusercontent.com/${{ github.repository }}/${{ github.sha }}/install.sh" | SPRINT_NO_OPEN=1 bash
+          test -s "$HOME/Sprint/Sprint.html"
+          test -f "$HOME/.claude/skills/sprint/SKILL.md"
+  windows:
+    name: irm | iex
+    runs-on: windows-latest
+    steps:
+      - name: Instalar como no README
+        shell: powershell
+        run: |
+          $env:SPRINT_NO_OPEN = '1'
+          irm "https://raw.githubusercontent.com/${{ github.repository }}/${{ github.sha }}/install.ps1" | iex
+          if (-not (Test-Path "$HOME\Sprint\Sprint.html")) { throw 'ferramenta nao gerada' }
+          if (-not (Test-Path "$HOME\.codex\skills\sprint\SKILL.md")) { throw 'skill nao instalada' }

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Relatar uma vulnerabilidade
+    url: https://github.com/carlos-dataengineer/sprint-gestao-de-tasks/security/advisories/new
+    about: Problemas de segurança são tratados em sigilo, fora das issues públicas.

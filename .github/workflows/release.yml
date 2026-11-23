@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    name: Publicar release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Conferir versão da tag
+        run: |
+          test "v$(cat VERSION)" = "${GITHUB_REF_NAME}" || { echo "A tag ${GITHUB_REF_NAME} difere de VERSION $(cat VERSION)"; exit 1; }
+      - name: Validar
+        run: python tests/validate_repo.py
+      - name: Empacotar
+        run: |
+          mkdir -p dist
+          (cd skills && zip -r ../dist/sprint-skill.zip sprint)
+          cp skills/sprint/assets/sprint.html dist/Sprint.html
+          cp skills/sprint/assets/sprint-artifact.html dist/sprint-artifact.html
+      - name: Notas da versão a partir do CHANGELOG
+        run: |
+          awk -v v="$(cat VERSION)" '$0 ~ "^## \\[" v "\\]" {f=1; next} /^## \[/ {f=0} f' CHANGELOG.md > dist/notas.md
+      - name: Criar release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" dist/sprint-skill.zip dist/Sprint.html dist/sprint-artifact.html \
+            --title "Sprint ${GITHUB_REF_NAME}" --notes-file dist/notas.md

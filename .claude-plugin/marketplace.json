@@ -1,0 +1,14 @@
+{
+  "name": "sprint-gestao-de-tasks",
+  "owner": { "name": "Krlos Robertt", "url": "https://github.com/carlos-dataengineer" },
+  "metadata": { "description": "Marketplace da Sprint — Gestão de Tasks." },
+  "plugins": [
+    {
+      "name": "sprint",
+      "source": "./",
+      "description": "Cronograma de sprints, quadro Kanban e saúde do projeto como artefato no Claude.",
+      "version": "2.0.0",
+      "license": "MIT"
+    }
+  ]
+}

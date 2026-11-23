@@ -1,0 +1,10 @@
+{
+  "name": "sprint",
+  "version": "2.0.0",
+  "description": "Sprint — Gestão de Tasks: cronograma de sprints, quadro Kanban, métricas e saúde do projeto, entregue como artefato compartilhado no Claude.",
+  "author": { "name": "Krlos Robertt", "url": "https://github.com/carlos-dataengineer" },
+  "homepage": "https://github.com/carlos-dataengineer/sprint-gestao-de-tasks",
+  "repository": "https://github.com/carlos-dataengineer/sprint-gestao-de-tasks",
+  "license": "MIT",
+  "keywords": ["sprint", "kanban", "gantt", "cronograma", "tasks", "projeto", "artefato", "skill"]
+}
