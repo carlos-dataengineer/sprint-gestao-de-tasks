@@ -1,0 +1,6 @@
+interface:
+  display_name: "Sprint — Gestão de Tasks"
+  short_description: "Abre o painel de sprints: cronograma, Kanban, métricas e saúde do projeto"
+  default_prompt: "Use $sprint para abrir a Sprint e montar o quadro do meu projeto."
+policy:
+  allow_implicit_invocation: true

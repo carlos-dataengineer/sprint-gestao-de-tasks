@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    name: Validar repositório
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Skill, plugin, versões, arquivos gerados, instaladores e README
+        run: python tests/validate_repo.py
+      - name: Sintaxe dos scripts bash
+        run: bash -n install.sh && bash -n uninstall.sh
+      - name: ShellCheck
+        run: shellcheck --severity=warning install.sh uninstall.sh
+
+  fumaca:
+    name: Teste no navegador
+    runs-on: ubuntu-latest
+    needs: validar
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar Playwright
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Modo local e modo compartilhado
+        run: python tests/test_smoke.py
+
+  instalar-unix:
+    name: Instalação (${{ matrix.os }})
+    needs: validar
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar a partir do clone
+        run: bash install.sh --no-open
+      - name: Conferir arquivos
+        run: |
+          test -f "$HOME/.claude/skills/sprint/SKILL.md"
+          test -f "$HOME/.codex/skills/sprint/assets/sprint.html"
+          test -f "$HOME/.codex/skills/sprint/agents/openai.yaml"
+          test -f "$HOME/.agents/skills/sprint/references/FORMATO-DADOS.md"
+          test -s "$HOME/Sprint/Sprint.html"
+      - name: Reinstalar (idempotente)
+        run: bash install.sh --no-open
+      - name: Desinstalar
+        run: |
+          bash uninstall.sh --all
+          test ! -e "$HOME/.claude/skills/sprint"
+          test ! -e "$HOME/Sprint/Sprint.html"
+
+  instalar-windows:
+    name: Instalação (Windows PowerShell 5.1)
+    needs: validar
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar a partir do clone
+        shell: powershell
+        run: .\install.ps1 -NoOpen
+      - name: Conferir arquivos
+        shell: powershell
+        run: |
+          foreach ($p in "$HOME\.claude\skills\sprint\SKILL.md", "$HOME\.codex\skills\sprint\SKILL.md", "$HOME\.agents\skills\sprint\SKILL.md", "$HOME\Sprint\Sprint.html") {
+            if (-not (Test-Path $p)) { throw "faltando: $p" }
+          }
+      - name: Desinstalar
+        shell: powershell
+        run: |
+          .\uninstall.ps1 -All
+          if (Test-Path "$HOME\.claude\skills\sprint") { throw 'skill nao removida' }
